@@ -19,8 +19,13 @@ public class GeoLocationService {
     @Value("${spring.application.azureWeatherURI}")
     private String weatherUrl;
 
-    public ResponseEntity<String> getGeoByLocation(String locality, String countryRegion) throws IOException, InterruptedException, NoSuchFieldException {
-        HttpResponse<String> res = httpService.apiCall(weatherUrl,"GET",new GeoLocation(locality,countryRegion), "");
+    public ResponseEntity<String> getGeoByLocation(String locality, String countryRegion, String postalCode) throws IOException, InterruptedException, NoSuchFieldException {
+        HttpResponse<String> res = httpService.apiCall(weatherUrl,"GET",new GeoLocation(locality,countryRegion,postalCode), "");
+        return new ResponseEntity<String>(res.body(),HttpStatusCode.valueOf(200));
+    }
+
+    public ResponseEntity<String> getGeoByAddress(String postalCode) throws IOException, InterruptedException, NoSuchFieldException {
+        HttpResponse<String> res = httpService.apiCall(weatherUrl,"GET",new GeoLocation(postalCode), "");
         return new ResponseEntity<String>(res.body(),HttpStatusCode.valueOf(200));
     }
 }

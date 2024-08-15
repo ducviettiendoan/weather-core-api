@@ -24,8 +24,8 @@ public class GeoLocationService {
         return new ResponseEntity<String>(res.body(),HttpStatusCode.valueOf(200));
     }
 
-    public ResponseEntity<String> getGeoByAddress(String postalCode) throws IOException, InterruptedException, NoSuchFieldException {
-        HttpResponse<String> res = httpService.apiCall(weatherUrl,"GET",new GeoLocation(postalCode), "");
+    public ResponseEntity<String> getGeoByAddress(String address) throws IOException, InterruptedException, NoSuchFieldException {
+        HttpResponse<String> res = httpService.apiCall(weatherUrl,"GET",new GeoLocation(address), "");
         return new ResponseEntity<String>(res.body(),HttpStatusCode.valueOf(200));
     }
 }

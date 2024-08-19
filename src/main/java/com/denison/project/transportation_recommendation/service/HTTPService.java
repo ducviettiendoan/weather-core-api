@@ -1,10 +1,9 @@
 package com.denison.project.transportation_recommendation.service;
 
 import com.denison.project.transportation_recommendation.config.HttpClientConfig;
-import com.denison.project.transportation_recommendation.model.GeoLocation;
+import com.denison.project.transportation_recommendation.model.HttpParameter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -20,7 +19,7 @@ public class HTTPService {
     @Autowired
     private ParameterStoreService parameterStoreService;
 
-    public HttpResponse<String> apiCall(String uri, String method, GeoLocation params, String body) throws IOException, InterruptedException, NoSuchFieldException {
+    public<T> HttpResponse<String> apiCall(String uri, String method, HttpParameter params, String body) throws IOException, InterruptedException, NoSuchFieldException {
         HttpClient httpClient = HttpClientConfig.getInstance().getClient();
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(buildURI(uri, params.getParams())))

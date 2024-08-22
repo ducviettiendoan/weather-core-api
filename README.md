@@ -6,3 +6,4 @@
 3. branch naming: `feature/feature_name`
 4. when development for a ticket is done, submit a PR to `main` branch and wait for at least 1 person to review.
 5. A pipeline will be created for this repo to auto-build and potentially check for code coverage. For now, any changes will be reviewed for building locally successfully. 
+6. Test pipeline

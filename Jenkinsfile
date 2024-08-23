@@ -16,6 +16,7 @@ pipeline {
                     echo 'pull origin main'
                     sh 'pwd'
                     sh 'git pull origin main'
+                    sh 'git fetch'
                 }
             }
         }

@@ -10,7 +10,7 @@ pipeline {
         stage('Clone the repo') {
             steps {
                 echo 'clone the repo'
-                sh "[ -d 'weather-core-api' ] && rm -r 'weather-core-api'"
+                sh 'rm -rf weather-core-api'
                 sh 'git clone https://github.com/ducviettiendoan/weather-core-api.git'
             }
         }

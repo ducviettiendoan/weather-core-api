@@ -5,6 +5,7 @@ pipeline {
     }
     environment {
         PUSHING_BRANCH = "${env.GIT_BRANCH}"
+        BRANCH_REMOTE = "origin"
     }
     stages {
         stage('Clone the repo') {
@@ -29,8 +30,7 @@ pipeline {
                 dir('weather-core-api'){
                     echo 'pull origin main'
                     sh 'pwd'
-                    echo '${PUSHING_BRANCH}'
-                    sh 'git checkout -b ${PUSHING_BRANCH} ${PUSHING_BRANCH}'
+                    sh 'git checkout -b temp_branch BRANCH_REMOTE/${PUSHING_BRANCH}'
                     sh 'git pull'
                     sh 'mvn clean'
                     sh 'mvn install'

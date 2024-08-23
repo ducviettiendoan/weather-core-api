@@ -31,7 +31,8 @@ public class HTTPService {
         if (params.isEmpty()){return uri;}
         String newUri = uri;
         for (Map.Entry<String,String>entry:params.entrySet()){
-            newUri = String.format("%s&%s=%s",newUri,entry.getKey(),entry.getValue());
+            //strip all white space for RequestParam value
+            newUri = String.format("%s&%s=%s",newUri,entry.getKey(),entry.getValue().replaceAll("\\s",""));
         }
         return newUri;
     }

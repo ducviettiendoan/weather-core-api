@@ -8,11 +8,12 @@ import java.util.Map;
 public class GeoLocation {
     private Map<String,String> params = new HashMap<>();
 
-    public GeoLocation(String locality, String countryCode){
+    public GeoLocation(String locality, String countryCode, String postalCode){
         this.params.put("locality",locality);
         this.params.put("countryCode", countryCode);
-    }
-    public GeoLocation(String postalCode){
         this.params.put("postalCode", postalCode);
+    }
+    public GeoLocation(String query){
+        this.params.put("query", query);
     }
 }

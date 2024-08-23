@@ -30,7 +30,7 @@ pipeline {
                 dir('weather-core-api'){
                     echo 'pull origin main'
                     sh 'pwd'
-                    sh 'git checkout -b temp_branch BRANCH_REMOTE/${PUSHING_BRANCH}'
+                    sh 'git checkout -b temp_branch ${BRANCH_REMOTE}/${PUSHING_BRANCH}'
                     sh 'git pull'
                     sh 'mvn clean'
                     sh 'mvn install'

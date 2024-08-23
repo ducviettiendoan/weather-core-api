@@ -3,7 +3,7 @@ package com.denison.project.transportation_recommendation.config;
 import lombok.Getter;
 import java.net.http.HttpClient;
 
-
+//thread safe Singleton HTTPClient
 @Getter
 public class HttpClientConfig{
     private static volatile HttpClientConfig instance;

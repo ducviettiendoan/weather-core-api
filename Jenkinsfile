@@ -29,10 +29,8 @@ pipeline {
                     echo '${PUSHING_BRANCH}'
                     sh 'git checkout -b ${PUSHING_BRANCH} ${PUSHING_BRANCH}'
                     sh 'git pull'
-                    withMaven{
-                        sh 'mvn clean'
-                        sh 'mvn install'
-                    }
+                    sh 'mvn clean'
+                    sh 'mvn install'
 
                 }
             }

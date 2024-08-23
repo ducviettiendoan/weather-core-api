@@ -34,7 +34,6 @@ pipeline {
                     sh 'git pull'
                     sh 'mvn clean'
                     sh 'mvn install'
-
                 }
             }
         }

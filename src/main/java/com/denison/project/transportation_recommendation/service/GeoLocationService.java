@@ -4,6 +4,7 @@ import com.denison.project.transportation_recommendation.model.GeoLocationParame
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,11 +47,14 @@ public class GeoLocationService {
         for (JsonNode feature:features){
             //extract geometry
             JsonNode geometry = feature.get("geometry").get("coordinates");
-            Pair<String,String>coordinate = Pair.of(geometry.get(0).toString(),geometry.get(1).toString());
+            Pair<String,String>coordinate = Pair.of(geometry.get(0).toString(), geometry.get(1).toString());
             if (!geos.contains(coordinate)){
                 geos.add(coordinate);
-                //extract address
-                foundAddress.add(feature.get("properties").get("address"));
+                //extract address (ObjectNode is a subclass of JacksonNode)
+                ObjectNode objectNode = objectMapper.createObjectNode();
+                objectNode.set("coordinate",feature.get("geometry").get("coordinates"));
+                objectNode.set("address",feature.get("properties").get("address"));
+                foundAddress.add(objectNode);
             }
         }
         if (foundAddress.isEmpty()) return null;

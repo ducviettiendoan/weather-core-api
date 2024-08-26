@@ -36,14 +36,6 @@ pipeline {
                     sh 'mvn install'
                 }
             }
-            post {
-                success {
-                    githubNotify context: 'Jenkins Build', status: 'SUCCESS'
-                }
-                failure {
-                    githubNotify context: 'Jenkins Build', status: 'FAILURE'
-                }
-            }
         }
     }
 }

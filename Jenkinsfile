@@ -27,7 +27,7 @@ pipeline {
         }
         stage('pull pushing branch and build project') {
             steps {
-                dir('weather-core-api'){=
+                dir('weather-core-api'){
                     sh 'pwd'
 //                     sh 'git checkout -b temp_branch ${BRANCH_REMOTE}/${PUSHING_BRANCH}'
 //                     sh 'git pull'

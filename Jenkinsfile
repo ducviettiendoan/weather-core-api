@@ -29,8 +29,6 @@ pipeline {
             steps {
                 dir('weather-core-api'){
                     sh 'pwd'
-//                     sh 'git checkout -b temp_branch ${BRANCH_REMOTE}/${PUSHING_BRANCH}'
-//                     sh 'git pull'
                     sh 'mvn clean'
                     sh 'mvn install'
                 }

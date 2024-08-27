@@ -8,4 +8,5 @@
 5. A pipeline will be created for this repo to auto-build and potentially check for code coverage. For now, any changes will be reviewed for building locally successfully.
 6. Test pipeline 123.
 7. Test 12345678910.
-8. Test on forcing Jenkins build check successful before merging
+8. Test on forcing Jenkins build check successful before merging.
+9. Test at least 1 review approval before merging.

@@ -8,13 +8,13 @@ pipeline {
         BRANCH_REMOTE = "origin"
     }
     stages {
-//         stage('Clone the repo') {
-//             steps {
-//                 echo 'clone the repo'
-//                 sh 'rm -rf weather-core-api'
-//                 sh 'git clone https://github.com/ducviettiendoan/weather-core-api.git'
-//             }
-//         }
+        stage('Clone the repo') {
+            steps {
+                echo 'clone the repo'
+                sh 'rm -rf weather-core-api'
+                sh 'git clone https://github.com/ducviettiendoan/weather-core-api.git'
+            }
+        }
         stage('pull main') {
             steps {
                 dir('weather-core-api'){
